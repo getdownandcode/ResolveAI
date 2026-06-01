@@ -1,0 +1,292 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-heading: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+
+  /* Apple System Dark Colors - Deep, rich grays instead of pure pitch black panels */
+  --bg-main: #000000;
+  --bg-card: #161617;
+  --bg-card-hover: #1d1d1f;
+  --border-color: rgba(255, 255, 255, 0.08);
+  --border-color-hover: rgba(255, 255, 255, 0.16);
+  
+  --primary: #0a84ff; /* Apple System Blue */
+  --primary-hover: #0071e3;
+  --primary-glow: rgba(10, 132, 255, 0.15);
+  
+  --secondary: #8e8e93; /* Apple System Gray */
+  --accent: #ff9f0a; /* Apple System Orange */
+  
+  --success: #30d158; /* Apple System Green */
+  --success-glow: rgba(48, 209, 88, 0.08);
+  
+  --warning: #ffd60a; /* Apple System Yellow */
+  --warning-glow: rgba(255, 214, 10, 0.08);
+  
+  --danger: #ff453a; /* Apple System Red */
+  --danger-glow: rgba(255, 69, 58, 0.08);
+  
+  /* Text Visual Hierarchy (Apple guidelines) */
+  --text-primary: #ffffff;         /* Pure white (Headers, Active Items) */
+  --text-secondary: #e5e5ea;       /* Crisp light gray (Body reading text) */
+  --text-muted: #98989d;           /* Muted gray (Captions, subtitles, inactive states) */
+  --text-placeholder: #545458;     /* Dark gray (Placeholders, times) */
+  
+  --apple-easing: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.12) transparent;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+html, body {
+  background-color: var(--bg-main);
+  color: var(--text-secondary);
+  font-family: var(--font-sans);
+  font-size: 16px; /* Bounded baseline font size (Apple guideline) */
+  line-height: 1.5;
+  min-height: 100vh;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  position: relative;
+}
+
+/* Elegant Panel styling */
+.glass-panel {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 14px;
+  transition: all 0.25s var(--apple-easing);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+}
+
+.glass-panel:hover {
+  border-color: var(--border-color-hover);
+}
+
+/* Typography styles */
+h1, h2, h3, h4, h5 {
+  font-family: var(--font-heading);
+  letter-spacing: -0.018em;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+/* Apple Buttons - Pill shaped & larger text labels */
+.btn-primary {
+  background: var(--primary);
+  color: #ffffff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 100px; /* Capsule buttons */
+  font-weight: 500;
+  font-size: 0.94rem; /* 15px */
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.2s var(--apple-easing);
+}
+
+.btn-primary:hover {
+  background: var(--primary-hover);
+  transform: translateY(-0.5px);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+}
+
+.btn-primary:disabled {
+  background: #1c1c1e;
+  color: var(--text-placeholder);
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.btn-secondary {
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+  padding: 10px 20px;
+  border-radius: 100px; /* Capsule buttons */
+  font-weight: 500;
+  font-size: 0.94rem;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.2s var(--apple-easing);
+}
+
+.btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.btn-success {
+  background: var(--success);
+  color: #000000;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 100px;
+  font-weight: 600;
+  font-size: 0.94rem;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.2s var(--apple-easing);
+}
+
+.btn-success:hover {
+  filter: brightness(1.1);
+  transform: translateY(-0.5px);
+}
+
+.btn-danger {
+  background: var(--danger);
+  color: #ffffff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 100px;
+  font-weight: 500;
+  font-size: 0.94rem;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.2s var(--apple-easing);
+}
+
+.btn-danger:hover {
+  filter: brightness(1.1);
+  transform: translateY(-0.5px);
+}
+
+/* Apple Pill Badges - Clear indicators, readable text sizes */
+.badge {
+  padding: 4px 12px;
+  border-radius: 100px;
+  font-size: 0.82rem; /* ~13px */
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.badge-open {
+  background: rgba(10, 132, 255, 0.12);
+  color: #0a84ff;
+  border: 1px solid rgba(10, 132, 255, 0.2);
+}
+
+.badge-active {
+  background: rgba(48, 209, 88, 0.12);
+  color: #30d158;
+  border: 1px solid rgba(48, 209, 88, 0.2);
+}
+
+.badge-locked {
+  background: rgba(255, 69, 58, 0.12);
+  color: #ff453a;
+  border: 1px solid rgba(255, 69, 58, 0.2);
+}
+
+.badge-pending {
+  background: rgba(255, 159, 10, 0.12);
+  color: #ff9f0a;
+  border: 1px solid rgba(255, 159, 10, 0.2);
+  animation: pulse-glow 2s infinite ease-in-out;
+}
+
+.badge-resolved {
+  background: rgba(48, 209, 88, 0.12);
+  color: #30d158;
+  border: 1px solid rgba(48, 209, 88, 0.2);
+}
+
+.badge-rejected {
+  background: rgba(255, 69, 58, 0.12);
+  color: #ff453a;
+  border: 1px solid rgba(255, 69, 58, 0.2);
+}
+
+/* Animations */
+@keyframes pulse-glow {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.75;
+    transform: scale(0.98);
+  }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.spin, .spinner {
+  animation: spin 1s linear infinite;
+}
+
+/* Status Indicator Dot */
+.indicator-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.indicator-dot.active {
+  background: var(--success);
+  box-shadow: 0 0 8px var(--success);
+  animation: pulse-glow 1.5s infinite;
+}
+
+.indicator-dot.paused {
+  background: var(--accent);
+  box-shadow: 0 0 8px var(--accent);
+  animation: pulse-glow 1.5s infinite;
+}
+
+.indicator-dot.idle {
+  background: var(--text-placeholder);
+}
+
+/* Text Utilities */
+.text-primary { color: var(--primary) !important; }
+.text-accent { color: var(--accent) !important; }
+.text-success { color: var(--success) !important; }
+.text-secondary { color: var(--text-secondary) !important; }
+.text-muted { color: var(--text-muted) !important; }
+.font-mono { font-family: ui-monospace, SFMono-Regular, SF Mono, Menlo, Monaco, Consolas, monospace !important; }
