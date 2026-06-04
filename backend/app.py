@@ -13,10 +13,16 @@ from agent import graph, get_gemini_client
 
 app = FastAPI(title="ResolveAI Backend Gateway", version="1.0.0")
 
+CORS_ORIGINS = [
+    origin.strip()
+    for origin in os.getenv("CORS_ORIGINS", "http://localhost:3000,http://127.0.0.1:3000").split(",")
+    if origin.strip()
+]
+
 # Enable CORS for Next.js frontend
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # For local development, allow all. In production, restrict.
+    allow_origins=CORS_ORIGINS,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
